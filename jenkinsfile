@@ -3,7 +3,7 @@ node {
         sh 'echo hello'
     }
     stage('learning') {
-        git url:https://github.com/Saikumarnelli/game-of-life.git
+        git url: 'https://github.com/Saikumarnelli/game-of-life.git'
         branch: 'master'
     }
 }
