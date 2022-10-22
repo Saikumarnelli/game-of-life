@@ -1,16 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage ('test') {
-           steps {
-            sh 'echo hello'
+        stage('test') {
+            steps {
+                sh 'echo hello'
+            }
         }
-        }  
-    }
-    stage('learning') {
-        steps{
-            git url: 'https://github.com/Saikumarnelli/game-of-life.git'
-        branch:'master'
-       }
+        stage('learning') {
+            agent {label 'openjdk-11-mvn'
+            }            
+            steps {
+                git url: 'https://github.com/GitPracticeRepo/game-of-life.git', 
+                    branch: 'master'
+            }
+        }
     }
 }
