@@ -1,9 +1,16 @@
-node {
-    stage('test') {
-        sh 'echo hello'
+pipeline {
+    agent any
+    stages {
+        stage ('test') {
+           steps {
+            sh 'echo hello'
+        }
+        }  
     }
     stage('learning') {
-        git url: 'https://github.com/Saikumarnelli/game-of-life.git'
-        branch: 'master'
+        steps{
+            git url: 'https://github.com/Saikumarnelli/game-of-life.git'
+        branch:'master'
+       }
     }
 }
